@@ -3,6 +3,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ref.Category;
 import ref.Ingredient;
+import ref.Tag;
 
 import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
@@ -23,6 +24,7 @@ public class Database {
                 .setProperty(HIGHLIGHT_SQL, TRUE.toString())
                 .addAnnotatedClass(Ingredient.class)
                 .addAnnotatedClass(Category.class)
+                .addAnnotatedClass(Tag.class)
                 .buildSessionFactory();
 
         return sessionFactory;
