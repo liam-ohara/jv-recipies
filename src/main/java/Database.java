@@ -10,6 +10,7 @@ public class Database {
         var sessionFactory = new Configuration()
                 // use H2 in-memory database
                 .setProperty(URL, "jdbc:h2:mem:db1")
+                .setProperty("hibernate.agroal.maxSize", "20")
                 // default username / password
                 .setProperty(USER, "sa")
                 .setProperty(PASS, "")
@@ -18,6 +19,8 @@ public class Database {
                 .setProperty(FORMAT_SQL, TRUE.toString())
                 .setProperty(HIGHLIGHT_SQL, TRUE.toString())
                 .buildSessionFactory();
+
+        return sessionFactory;
     }
 
 }
