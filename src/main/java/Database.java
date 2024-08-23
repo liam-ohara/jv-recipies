@@ -1,9 +1,6 @@
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ref.Category;
-import ref.Ingredient;
-import ref.Tag;
+import ref.*;
 
 import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
@@ -25,6 +22,7 @@ public class Database {
                 .addAnnotatedClass(Ingredient.class)
                 .addAnnotatedClass(Category.class)
                 .addAnnotatedClass(Tag.class)
+                .addAnnotatedClass(AppUser.class)
                 .buildSessionFactory();
 
         return sessionFactory;
