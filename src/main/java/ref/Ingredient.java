@@ -3,6 +3,9 @@ package ref;
 import common.Units;
 import jakarta.persistence.*;
 
+import javax.annotation.processing.Generated;
+import java.util.List;
+
 @Entity
 public class Ingredient {
 
@@ -16,9 +19,13 @@ public class Ingredient {
     int quantity;
 
     @Column(nullable = false)
-    short unit;
+    String unit;
 
-    Ingredient(String name, int quantity, short unit) {
+    @OneToMany
+    @JoinColumn(name="recipe_id")
+    List<Recipe> recipies;
+
+    public Ingredient(String name, int quantity, String unit) {
         this.name = name;
         this.quantity = quantity;
         this.unit = unit;

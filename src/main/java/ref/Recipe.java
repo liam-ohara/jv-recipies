@@ -35,7 +35,7 @@ public class Recipe {
     List<Ingredient> ingredients;
 
     @Column(nullable = false)
-    @OneToMany
+    @ManyToMany
     List<Category> categories;
 
 //    @Column(nullable = false)
@@ -46,6 +46,20 @@ public class Recipe {
     String createdDate;
 
     String lastModifiedDate;
+
+    @OneToMany
+    @JoinColumn(name="comment_id")
+    List<Comment> comments;
+
+    @OneToMany
+    @JoinColumn(name="rating_id")
+    List<Rating> ratings;
+
+    @OneToMany
+    @JoinColumn(name="image_id")
+    List<Image> images;
+
+
 
     public Recipe(String title, String instructions, int cookingTimeInMinutes, int servings, List<Ingredient> ingredients, List<Category> categories, AppUser appUser, String createdDate) {
         this.title = title;

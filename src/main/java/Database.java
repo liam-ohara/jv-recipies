@@ -32,4 +32,24 @@ public class Database {
         return sessionFactory;
     }
 
+    static void seed(){
+        var sessionFactory = getSessionFactory();
+        sessionFactory.inTransaction(session -> {
+            Ingredient ingredient = new Ingredient("Peas", 5, "grams" );
+            session.persist(ingredient);
+//            session.persist(new Recipe(/* your constructor params go here */));
+//            session.persist(new AppUser());
+//            session.persist(new Category());
+//            session.persist(new Comment());
+//            session.persist(new Image());
+//            session.persist(new Rating());
+//            session.persist(new Tag());
+            session.flush();
+            session.refresh(ingredient);
+            session.close();
+        });
+
+
+    }
+
 }

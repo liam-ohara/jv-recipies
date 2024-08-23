@@ -1,8 +1,8 @@
 package ref;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class AppUser {
@@ -21,6 +21,18 @@ public class AppUser {
 
     @Column(nullable = false)
     String registeredDate;
+
+    @OneToMany
+    @JoinColumn(name="recipe_id")
+    List<Recipe> recipes;
+
+    @OneToMany
+    @JoinColumn(name="comment_id")
+    List<Comment> comments;
+
+    @OneToMany
+    @JoinColumn(name="rating_id")
+    List<Rating> ratings;
 
     AppUser(String username, String email, String roles, String registeredDate) {
         this.username = username;
