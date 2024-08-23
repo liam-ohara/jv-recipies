@@ -1,6 +1,8 @@
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import ref.Ingredient;
+
 import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
 
@@ -18,6 +20,7 @@ public class Database {
                 .setProperty(SHOW_SQL, TRUE.toString())
                 .setProperty(FORMAT_SQL, TRUE.toString())
                 .setProperty(HIGHLIGHT_SQL, TRUE.toString())
+                .addAnnotatedClass(Ingredient.class)
                 .buildSessionFactory();
 
         return sessionFactory;
