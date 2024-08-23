@@ -20,6 +20,8 @@ public class Comment {
     @OneToOne
     Recipe recipe;
 
+    Comment(){}
+
     public Comment(String text, String datePosted, AppUser user, Recipe recipe) {
         this.text = text;
         this.datePosted = datePosted;

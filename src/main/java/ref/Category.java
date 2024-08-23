@@ -16,6 +16,8 @@ public class Category {
     @JoinColumn(name="recipe_id")
     List<Recipe> recipies;
 
+    Category(){}
+
     Category(String name) {
         this.name = name;
     }

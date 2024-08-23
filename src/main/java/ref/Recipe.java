@@ -59,7 +59,7 @@ public class Recipe {
     @JoinColumn(name="image_id")
     List<Image> images;
 
-
+    Recipe(){}
 
     public Recipe(String title, String instructions, int cookingTimeInMinutes, int servings, List<Ingredient> ingredients, List<Category> categories, AppUser appUser, String createdDate) {
         this.title = title;

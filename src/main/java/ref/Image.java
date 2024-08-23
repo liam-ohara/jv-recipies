@@ -16,6 +16,8 @@ public class Image {
     @OneToOne
     Recipe recipe;
 
+    Image(){}
+
     public Image(String filename, String fileData, Recipe recipe) {
         this.filename = filename;
         this.fileData = fileData;

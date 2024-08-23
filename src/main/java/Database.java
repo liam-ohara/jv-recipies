@@ -10,9 +10,9 @@ public class Database {
     public static SessionFactory getSessionFactory(){
         var sessionFactory = new Configuration()
                 // use H2 in-memory database
-                .setProperty(URL, "jdbc:h2:mem:db1")
                 .setProperty("hibernate.agroal.maxSize", "20")
                 // default username / password
+                .setProperty(URL, "jdbc:h2:mem:db1")
                 .setProperty(USER, "sa")
                 .setProperty(PASS, "")
                 // options to display SQL in console
@@ -35,8 +35,11 @@ public class Database {
     static void seed(){
         var sessionFactory = getSessionFactory();
         sessionFactory.inTransaction(session -> {
-            Ingredient ingredient = new Ingredient("Peas", 5, "grams" );
-            session.persist(ingredient);
+        Ingredient ingredient = new Ingredient("Peas", 5, "grams" );
+        session.persist(ingredient);
+
+//                session.refresh(ingredient);
+
 //            session.persist(new Recipe(/* your constructor params go here */));
 //            session.persist(new AppUser());
 //            session.persist(new Category());
@@ -46,7 +49,7 @@ public class Database {
 //            session.persist(new Tag());
             session.flush();
             session.refresh(ingredient);
-            session.close();
+//            session.close();
         });
 
 

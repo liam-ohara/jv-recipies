@@ -7,7 +7,8 @@ public class Main {
         try (SessionFactory sessionFactory = Database.getSessionFactory()) {
 
             sessionFactory.getSchemaManager().exportMappedObjects(true);
-//            Database.seed();
+//            sessionFactory.openSession().createQuery("FROM user");
+            Database.seed();
             sessionFactory.close();
         }
     }

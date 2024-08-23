@@ -20,6 +20,8 @@ public class Rating {
     @OneToOne
     AppUser rater;
 
+    Rating(){}
+
     public Rating(int ratingValue, String dateRated, Recipe recipe, AppUser rater) {
         this.ratingValue = ratingValue;
         this.dateRated = dateRated;

@@ -34,6 +34,8 @@ public class AppUser {
     @JoinColumn(name="rating_id")
     List<Rating> ratings;
 
+    AppUser(){}
+
     AppUser(String username, String email, String roles, String registeredDate) {
         this.username = username;
         this.email = email;

@@ -12,6 +12,8 @@ public class Tag {
     @Column(nullable = false)
     String name;
 
+    Tag(){}
+
     Tag(String name) {
         this.name = name;
     }

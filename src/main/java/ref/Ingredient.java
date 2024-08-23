@@ -25,6 +25,8 @@ public class Ingredient {
     @JoinColumn(name="recipe_id")
     List<Recipe> recipies;
 
+    Ingredient(){}
+
     public Ingredient(String name, int quantity, String unit) {
         this.name = name;
         this.quantity = quantity;
